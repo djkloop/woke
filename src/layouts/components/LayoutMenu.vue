@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { shallowRef } from 'vue'
 import { useRoute } from 'vue-router'
+import LayoutMenuFooter from './LayoutMenuFooter.vue'
 
 const innerMenuList = shallowRef([
   { name: '首页', icon: 'HomeIcon', path: '/' },
   { name: '水文', icon: 'ArticleIcon', path: '/article' },
   { name: '摄影', icon: 'CameraIcon', path: '/photo' },
   { name: '碎嘴', icon: 'CameraIcon', path: '/shatter' },
+  { name: '作品', icon: 'CameraIcon', path: '/shatter' },
   { name: '关于', icon: 'AboutIcon', path: '/about' },
 ])
 
@@ -17,11 +19,11 @@ const route = useRoute()
 </script>
 
 <template>
-  <div class="h100vh" flex flex-col items-center justify-center gap-y-4 px4>
+  <div class="h100vh" relative flex flex-col items-center justify-center gap-y-4>
     <div border="1px solid coolgray-2" h30 w30 flex rotate-y-180deg items-center justify-center overflow-hidden rounded-full p2>
-      <img src="@/assets/logo_wk.png" class="block h20 w20" alt="" srcset="">
+      <img src="@/assets/logo_wk_x.png" class="block h20 w20" alt="" srcset="">
     </div>
-    <div text-3xl font-bold>
+    <div text-3xl>
       <span>蜗壳</span>
     </div>
     <div text-sm color-coolGray-5>
@@ -40,6 +42,7 @@ const route = useRoute()
         {{ menuItem.name }}
       </router-link>
     </div>
+    <LayoutMenuFooter />
   </div>
 </template>
 
