@@ -3,7 +3,11 @@ import Layout from '@/layouts/Layout.vue'
 </script>
 
 <template>
-  <Layout />
+  <t-config-provider>
+    <div class="font-sans">
+      <Layout />
+    </div>
+  </t-config-provider>
 </template>
 
 <style scoped>
