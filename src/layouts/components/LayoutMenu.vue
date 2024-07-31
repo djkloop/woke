@@ -6,8 +6,8 @@ import LayoutMenuFooter from './LayoutMenuFooter.vue'
 const innerMenuList = shallowRef([
   { name: '首页', icon: 'HomeIcon', path: '/' },
   { name: '水文', icon: 'ArticleIcon', path: '/article' },
-  { name: '摄影', icon: 'CameraIcon', path: '/photo' },
-  { name: '作品', icon: 'CameraIcon', path: '/work' },
+  { name: '摄影', icon: 'CameraIcon', path: '/photography' },
+  { name: '项目', icon: 'CameraIcon', path: '/projects' },
   { name: '碎嘴', icon: 'CameraIcon', path: '/shatter' },
   { name: '关于', icon: 'AboutIcon', path: '/about' },
 ])
