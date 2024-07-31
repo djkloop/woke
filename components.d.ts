@@ -9,11 +9,9 @@ declare module 'vue' {
   export interface GlobalComponents {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    TButton: typeof import('tdesign-vue-next')['Button']
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider']
     TImage: typeof import('tdesign-vue-next')['Image']
     TSwiper: typeof import('tdesign-vue-next')['Swiper']
     TSwiperItem: typeof import('tdesign-vue-next')['SwiperItem']
-    TWatermark: typeof import('tdesign-vue-next')['Watermark']
   }
 }

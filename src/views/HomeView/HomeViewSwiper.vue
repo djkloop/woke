@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { shallowRef } from 'vue'
 
-const allImages = import.meta.glob('../../assets/images/home/banner/*.{png,jpg}', {
+const allImages = import.meta.glob('/src/assets/images/home/banner/*.{png,jpg}', {
   query: '?url',
   import: 'default',
 })
