@@ -5,7 +5,7 @@ import LayoutMenu from './components/LayoutMenu.vue'
 <template>
   <div grid grid-cols-3 gap-x-4>
     <LayoutMenu />
-    <div col-span-2 border="1px solid l-coolGray-2 r-0 b-0 t-0" p4>
+    <div border="1px solid l-coolGray-2 r-0 b-0 t-0" col-span-2 overflow-y-scroll p4 class="scrollbar-none h-[calc(100vh-2rem)]">
       <RouterView />
     </div>
   </div>

@@ -4,7 +4,7 @@ import Layout from '@/layouts/Layout.vue'
 
 <template>
   <t-config-provider>
-    <div class="font-sans-regular">
+    <div class="font-sans-regular overflow-hidden">
       <Layout />
     </div>
   </t-config-provider>

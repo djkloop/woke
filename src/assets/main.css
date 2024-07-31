@@ -11,3 +11,9 @@
 .font-sans-regular {
   font-family: 'LXGW WenKai Lite', sans-serif;
 }
+
+#app,
+html,
+body {
+  overflow: hidden;
+}

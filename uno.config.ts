@@ -6,10 +6,12 @@ import {
   transformerDirectives,
   transformerVariantGroup,
 } from 'unocss'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 
 export default defineConfig({
   shortcuts: [
     { logo: 'i-logos-vue w-6em h-6em transform transition-800' },
+    { 'text-color-primary-base': 'cursor-pointer transition-all hover:(color-primary transition-duration-150 transition-property-color)' },
   ],
   presets: [
     presetUno(),
@@ -20,6 +22,7 @@ export default defineConfig({
         'vertical-align': 'middle',
       },
     }),
+    presetScrollbar(),
   ],
   transformers: [
     transformerVariantGroup(),

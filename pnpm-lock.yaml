@@ -76,6 +76,9 @@ devDependencies:
   unocss:
     specifier: ^0.61.6
     version: 0.61.6(postcss@8.4.40)(vite@5.3.5)
+  unocss-preset-scrollbar:
+    specifier: ^0.3.1
+    version: 0.3.1(unocss@0.61.6)
   unplugin-auto-import:
     specifier: ^0.18.2
     version: 0.18.2(@vueuse/core@10.11.0)
@@ -1602,6 +1605,10 @@ packages:
       unconfig: 0.3.13
     dev: true
 
+  /@unocss/core@0.56.5:
+    resolution: {integrity: sha512-fx5VhOjSHn0HdV2D34pEwFMAHJcJQRTCp1xEE4GzxY1irXzaa+m2aYf5PZjmDxehiOC16IH7TO9FOWANXk1E0w==}
+    dev: true
+
   /@unocss/core@0.61.6:
     resolution: {integrity: sha512-z1O1fnMRvmX1zkvbKVZ7jKUOHZHw/tUBYDNpll1rx9wjmps/MHfv7K5C5FiOTaW9S9H5r2LSjW/MaMs0dxgoCw==}
     dev: true
@@ -1623,6 +1630,12 @@ packages:
       - eslint
       - supports-color
       - typescript
+    dev: true
+
+  /@unocss/extractor-arbitrary-variants@0.56.5:
+    resolution: {integrity: sha512-p2pyzz/ONvc5CGcaB9OZvWE8qkRSgyuhaQqFQLdBFeUhveHC0CGP0iSnXwBgAFHWM7DJo4/JpWeZ+mBt0ogVLA==}
+    dependencies:
+      '@unocss/core': 0.56.5
     dev: true
 
   /@unocss/extractor-arbitrary-variants@0.61.6:
@@ -1669,6 +1682,14 @@ packages:
       ofetch: 1.3.4
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@unocss/preset-mini@0.56.5:
+    resolution: {integrity: sha512-/KhlThhs1ilauM7MwRSpahLbIPZ5VGeGvaUsU8+ZlNT3sis4yoVYkPtR14tL2IT6jhOU05N/uu3aBj+1bP8GjQ==}
+    dependencies:
+      '@unocss/core': 0.56.5
+      '@unocss/extractor-arbitrary-variants': 0.56.5
+      '@unocss/rule-utils': 0.56.5
     dev: true
 
   /@unocss/preset-mini@0.61.6:
@@ -1725,6 +1746,13 @@ packages:
 
   /@unocss/reset@0.61.6:
     resolution: {integrity: sha512-fAlE2EbG5h6yS6oIBDOKw4VHogLcl/Ao9EbrcNe1uRc79cA1rvSkqeMAxLHvGxwXAzu7LIovknR+pzASeVLZBg==}
+    dev: true
+
+  /@unocss/rule-utils@0.56.5:
+    resolution: {integrity: sha512-CXIGHCIC9B8WUl9KbbFMSZHcsIgfmI/+X0bjBv6xrgBVC1EQ2Acq4PYnJIbaRGBRAhl9wYjNL7Zq2UWOdowHAw==}
+    engines: {node: '>=14'}
+    dependencies:
+      '@unocss/core': 0.56.5
     dev: true
 
   /@unocss/rule-utils@0.61.6:
@@ -5049,6 +5077,15 @@ packages:
   /universalify@2.0.1:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
+    dev: true
+
+  /unocss-preset-scrollbar@0.3.1(unocss@0.61.6):
+    resolution: {integrity: sha512-LhvcQA1cfwq06sqAZY++1crrLsOf/IfOPdyCkMHVyywI9WCvMhxCJlCcrySlQI8/Y2VUjOpLBDWB0w3DXS5qRA==}
+    peerDependencies:
+      unocss: '>= 0.31.13 < 1'
+    dependencies:
+      '@unocss/preset-mini': 0.56.5
+      unocss: 0.61.6(postcss@8.4.40)(vite@5.3.5)
     dev: true
 
   /unocss@0.61.6(postcss@8.4.40)(vite@5.3.5):
