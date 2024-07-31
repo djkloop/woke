@@ -1,15 +1,18 @@
 <script setup lang="ts">
 import { shallowRef } from 'vue'
 
+const imgs = shallowRef<any>([])
+
 const allImages = import.meta.glob('/src/assets/images/home/banner/*.{png,jpg}', {
   query: '?url',
   import: 'default',
+  eager: true,
 })
-console.log('🚀 ~ allImages:', allImages)
 
-const urlPaths = Object.keys(allImages)
-
-const imgs = shallowRef(urlPaths)
+for (const path in allImages) {
+  const module = allImages[path] as any
+  imgs.value.push(module)
+}
 </script>
 
 <template>
