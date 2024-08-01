@@ -42,7 +42,7 @@ const computedTags = computed(() => {
         <span class="mx-2">·</span>
         <span>{{ createTime }}</span>
       </div>
-      <div v-if="isPin" border="1px solid indigo-500" p="x1" rounded-sm text-xs color-indigo-500>
+      <div v-if="isPin" border="1px solid primary" p="x1" rounded-sm text-xs color-primary>
         <span>置顶</span>
       </div>
     </div>
