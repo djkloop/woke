@@ -28,7 +28,7 @@ function getRandomSubArray(arr: number[]) {
     randomIndex = Math.floor(Math.random() * arr.length)
     newArr.push(arr[randomIndex])
   }
-  return newArr
+  return Array.from(new Set(newArr))
 }
 
 function randomInfos() {
