@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { IArticleBlockDescriptionProps } from './ArticleBlockDescription.type'
-import { articleTags } from '@/utils/constant'
+import { articleRandomTag, articleTags } from '@/utils/constant'
+import { getRandomOption } from '@/utils/utils'
 
 const { isPin, title, tags, createTime, content } = withDefaults(defineProps<IArticleBlockDescriptionProps>(), {
   isPin: false,
@@ -10,6 +11,10 @@ const { isPin, title, tags, createTime, content } = withDefaults(defineProps<IAr
   content: '无',
   createTime: '无',
   isShow: false,
+})
+
+const computedTag = computed(() => {
+  return getRandomOption(articleRandomTag)
 })
 
 const computedTags = computed(() => {
@@ -63,8 +68,9 @@ const computedReadContentTime = computed(() => {
         <span class="mx-2">·</span>
         <span>{{ createTime }}</span>
       </div>
-      <div v-if="isPin" border="1px solid primary" p="x1" rounded-sm text-xs color-primary>
-        <span>置顶</span>
+      <div border="1px solid primary" p="x1" rounded-sm text-xs color-primary>
+        <span v-if="isPin">置顶</span>
+        <span v-else>{{ computedTag }}</span>
       </div>
     </div>
   </div>
