@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import dayjs from 'dayjs'
 import { shallowRef } from 'vue'
-import ArticleBlockDescription from '@/components/ArticleBlockDescription/ArticleBlockDescription.vue'
 import type { IArticleBlockDescriptionProps } from '@/components/ArticleBlockDescription/ArticleBlockDescription.type'
+import ArticleBlockDescription from '@/components/ArticleBlockDescription/ArticleBlockDescription.vue'
 
 interface IHomeViewContentListProps {
   list: IArticleBlockDescriptionProps[]
@@ -11,6 +11,8 @@ interface IHomeViewContentListProps {
 const { list } = withDefaults(defineProps<IHomeViewContentListProps>(), {
   list: () => [],
 })
+
+console.log(__STATIC__MARKDOWN__DATA__)
 
 const innerList = shallowRef<IArticleBlockDescriptionProps[]>([])
 
@@ -124,6 +126,4 @@ innerList.value = createNewList()
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

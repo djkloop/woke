@@ -1,21 +1,27 @@
 import { URL, fileURLToPath } from 'node:url'
 
-import { defineConfig } from 'vite'
+import { unheadVueComposablesImports } from '@unhead/vue'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueDevTools from 'vite-plugin-vue-devtools'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import Components from 'unplugin-vue-components/vite'
 import { TDesignResolver } from 'unplugin-vue-components/resolvers'
-import { unheadVueComposablesImports } from '@unhead/vue'
+import Components from 'unplugin-vue-components/vite'
+import { defineConfig } from 'vite'
+import vueDevTools from 'vite-plugin-vue-devtools'
 // markdown-it
-import Markdown from 'unplugin-vue-markdown/vite'
-import LinkAttributes from 'markdown-it-link-attributes'
 import Shiki from '@shikijs/markdown-it'
+import LinkAttributes from 'markdown-it-link-attributes'
+import Markdown from 'unplugin-vue-markdown/vite'
+
+//
+import { createMarkDownData } from './build/build.markdown'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    __STATIC__MARKDOWN__DATA__: createMarkDownData(),
+  },
   plugins: [
     vue({
       include: [/\.vue$/, /\.md$/],
@@ -50,7 +56,6 @@ export default defineConfig({
 
         // 主题
         md.use(await Shiki({
-          defaultColor: false,
           themes: {
             light: 'vitesse-light',
             dark: 'vitesse-dark',

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useHead } from '@unhead/vue'
-import { defineAsyncComponent } from 'vue'
-import { useRoute } from 'vue-router'
+import { useHead } from '@unhead/vue';
+import { defineAsyncComponent } from 'vue';
+import { useRoute } from 'vue-router';
 
 const route = useRoute()
 const { id } = route.query
@@ -15,7 +15,7 @@ useHead({
 </script>
 
 <template>
-  <div p4>
+  <div p2>
     <Suspense>
       <MarkDownComponent />
       <template #fallback>
@@ -25,6 +25,4 @@ useHead({
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

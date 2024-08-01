@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import HomeViewSwiper from './HomeViewSwiper.vue'
-import HomeViewContentList from './HomeViewContentList.vue'
+import HomeViewContentList from './HomeViewContentList.vue';
+import HomeViewSwiper from './HomeViewSwiper.vue';
 </script>
 
 <template>
