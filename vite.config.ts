@@ -8,11 +8,14 @@ import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { TDesignResolver } from 'unplugin-vue-components/resolvers'
+import Markdown from 'unplugin-vue-markdown/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
     vueJsx(),
     vueDevTools(),
     UnoCSS(),
@@ -23,10 +26,13 @@ export default defineConfig({
       })],
     }),
     Components({
+      extensions: ['vue', 'md'],
+      include: [/\.vue$/, /\.vue\?vue/, /\.md$/],
       resolvers: [TDesignResolver({
         library: 'vue-next',
       })],
     }),
+    Markdown({ /* options */ }),
   ],
   resolve: {
     alias: {

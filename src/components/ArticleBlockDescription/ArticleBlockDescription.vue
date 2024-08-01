@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useRouter } from 'vue-router'
 import type { IArticleBlockDescriptionProps } from './ArticleBlockDescription.type'
 import { articleRandomTag, articleTags } from '@/utils/constant'
 import { getRandomOption } from '@/utils/utils'
@@ -12,6 +13,8 @@ const { isPin, title, tags, createTime, content } = withDefaults(defineProps<IAr
   createTime: '无',
   isShow: false,
 })
+
+const router = useRouter()
 
 const computedTag = computed(() => {
   return getRandomOption(articleRandomTag)
@@ -47,19 +50,26 @@ function calculateReadingTime(text: string, wordsPerMinute = 250) {
 const computedReadContentTime = computed(() => {
   return calculateReadingTime(content + title)
 })
+
+function handleToBlogDetail() {
+  router.push({
+    name: 'article-detail',
+    query: {
+      id: 'blog',
+    },
+  })
+}
 </script>
 
 <template>
   <div
-    border="1px solid coolGray-2"
-    :class="{
-      '!border-indigo-5': isPin,
-    }"
+    :border="`1px solid ${isPin ? 'indigo-5' : 'coolGray-2'}`"
     flex
     flex-col
     gap-y-6
     rounded-sm
     p4
+    @click="handleToBlogDetail"
   >
     <div
       class="line-clamp-1 break-all text-xl font-bold tracking-0.3 text-color-primary-base"
@@ -76,10 +86,7 @@ const computedReadContentTime = computed(() => {
     <div flex items-center justify-between color-gray-4>
       <div class="flex items-center text-sm">
         <span
-          color-primary
-          :class="{
-            '!color-indigo-5': isPin,
-          }"
+          :color="`${isPin ? 'indigo-5' : 'primary'}`"
         >{{ computedTags }}</span>
         <span class="mx-2">·</span>
         <div flex items-center justify-center gap-x-1>
@@ -90,15 +97,11 @@ const computedReadContentTime = computed(() => {
         <span>{{ createTime }}</span>
       </div>
       <div
-        border="1px solid primary"
+        :border="`1px solid ${isPin ? 'indigo-5' : 'primary'}`"
+        :color="`${isPin ? 'indigo-5' : 'primary'}`"
         p="x1"
         rounded-sm
         text-xs
-        color-primary
-        :class="{
-          '!border-indigo-5': isPin,
-          '!color-indigo-5': isPin,
-        }"
       >
         <span v-if="isPin">置顶</span>
         <span v-else>{{ computedTag }}</span>
