@@ -111,7 +111,7 @@ innerList.value = createNewList()
 </script>
 
 <template>
-  <div v-for="item in innerList" :key="item.id">
+  <section v-for="item in innerList" id="WoKeHomeContentList" :key="item.id">
     <ArticleBlockDescription
       :id="item.id"
       :key="item.id"
@@ -121,7 +121,7 @@ innerList.value = createNewList()
       :is-pin="item.isPin"
       :create-time="item.createTime"
     />
-  </div>
+  </section>
 </template>
 
 <style scoped>

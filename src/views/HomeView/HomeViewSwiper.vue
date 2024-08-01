@@ -16,7 +16,7 @@ for (const path in allImages) {
 </script>
 
 <template>
-  <div>
+  <section id="WoKeHomeSwiper">
     <t-swiper class="h300px overflow-hidden rounded-sm" trigger="click" :navigation="{ showSlideBtn: 'hover' }">
       <t-swiper-item v-for="(img) in imgs" :key="img" class="relative h300px bg-black">
         <t-image
@@ -27,7 +27,7 @@ for (const path in allImages) {
         />
       </t-swiper-item>
     </t-swiper>
-  </div>
+  </section>
 </template>
 
 <style scoped>
