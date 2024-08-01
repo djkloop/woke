@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { useHead } from '@unhead/vue'
+import { defineAsyncComponent } from 'vue'
+import { useRoute } from 'vue-router'
+
 const route = useRoute()
 const { id } = route.query
 const MarkDownComponent = defineAsyncComponent(() => {
