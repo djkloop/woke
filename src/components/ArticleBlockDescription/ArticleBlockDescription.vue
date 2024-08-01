@@ -50,8 +50,23 @@ const computedReadContentTime = computed(() => {
 </script>
 
 <template>
-  <div border="1px solid coolGray-2" flex flex-col gap-y-6 rounded-sm p4>
-    <div class="line-clamp-1 break-all text-xl font-bold tracking-0.3 text-color-primary-base">
+  <div
+    border="1px solid coolGray-2"
+    :class="{
+      '!border-indigo-5': isPin,
+    }"
+    flex
+    flex-col
+    gap-y-6
+    rounded-sm
+    p4
+  >
+    <div
+      class="line-clamp-1 break-all text-xl font-bold tracking-0.3 text-color-primary-base"
+      :class="{
+        'text-color-primary-base-pin': isPin,
+      }"
+    >
       {{ title }}
     </div>
     <p class="cursor-pointer tracking-0.3" line-clamp-2 break-all indent-md color-gray-4>
@@ -59,7 +74,12 @@ const computedReadContentTime = computed(() => {
     </p>
     <div flex items-center justify-between color-gray-4>
       <div class="flex items-center text-sm">
-        <span color-primary>{{ computedTags }}</span>
+        <span
+          color-primary
+          :class="{
+            '!color-indigo-5': isPin,
+          }"
+        >{{ computedTags }}</span>
         <span class="mx-2">·</span>
         <div flex items-center justify-center gap-x-1>
           <span class="i-hugeicons-clock-01" role="img" aria-hidden="true" />
@@ -68,7 +88,17 @@ const computedReadContentTime = computed(() => {
         <span class="mx-2">·</span>
         <span>{{ createTime }}</span>
       </div>
-      <div border="1px solid primary" p="x1" rounded-sm text-xs color-primary>
+      <div
+        border="1px solid primary"
+        p="x1"
+        rounded-sm
+        text-xs
+        color-primary
+        :class="{
+          '!border-indigo-5': isPin,
+          '!color-indigo-5': isPin,
+        }"
+      >
         <span v-if="isPin">置顶</span>
         <span v-else>{{ computedTag }}</span>
       </div>
