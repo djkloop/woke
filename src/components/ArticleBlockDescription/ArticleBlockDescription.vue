@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { IArticleBlockDescriptionProps } from './ArticleBlockDescription.type'
 import { articleTags } from '@/utils/constant'
 
-const { isPin, title, tags, createTime } = withDefaults(defineProps<IArticleBlockDescriptionProps>(), {
+const { isPin, title, tags, createTime, content } = withDefaults(defineProps<IArticleBlockDescriptionProps>(), {
   isPin: false,
   title: '无',
   tags: () => [],
@@ -26,6 +26,22 @@ const computedTags = computed(() => {
 
   return tagText
 })
+
+function calculateReadingTime(text: string, wordsPerMinute = 250) {
+  const cleanText = text.replace(/\s+/g, '').length
+  const minutes = cleanText / wordsPerMinute
+  const totalSeconds = Math.ceil(minutes * 60)
+  const minutesPart = Math.floor(totalSeconds / 60)
+  const secondsPart = totalSeconds % 60
+  if (minutesPart < 1) {
+    return `少于1分钟`
+  }
+  return `${minutesPart} 分钟 ${secondsPart} 秒`
+}
+
+const computedReadContentTime = computed(() => {
+  return calculateReadingTime(content + title)
+})
 </script>
 
 <template>
@@ -33,12 +49,17 @@ const computedTags = computed(() => {
     <div class="line-clamp-1 break-all text-xl font-bold tracking-0.3 text-color-primary-base">
       {{ title }}
     </div>
-    <p line-clamp-2 break-all indent-sm class="cursor-pointer tracking-0.3" color-gray-4>
+    <p class="cursor-pointer tracking-0.3" line-clamp-2 break-all indent-md color-gray-4>
       {{ content }}
     </p>
     <div flex items-center justify-between color-gray-4>
       <div class="flex items-center text-sm">
         <span color-primary>{{ computedTags }}</span>
+        <span class="mx-2">·</span>
+        <div flex items-center justify-center gap-x-1>
+          <span class="i-hugeicons-clock-01" role="img" aria-hidden="true" />
+          <span>{{ computedReadContentTime }}</span>
+        </div>
         <span class="mx-2">·</span>
         <span>{{ createTime }}</span>
       </div>
