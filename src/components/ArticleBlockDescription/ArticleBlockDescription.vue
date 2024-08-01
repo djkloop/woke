@@ -66,6 +66,7 @@ const computedReadContentTime = computed(() => {
       :class="{
         'text-color-primary-base-pin': isPin,
       }"
+      :title="title"
     >
       {{ title }}
     </div>
