@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { defineAsyncComponent } from 'vue'
-import { useRoute } from 'vue-router'
-
 const route = useRoute()
 const { id } = route.query
 const MarkDownComponent = defineAsyncComponent(() => {
   return import(`../../blog/${id}.md`)
+})
+
+useHead({
+  title: `文章详情-${id}`,
 })
 </script>
 
