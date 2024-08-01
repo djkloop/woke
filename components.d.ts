@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ArticleBlockDescription: typeof import('./src/components/ArticleBlockDescription/ArticleBlockDescription.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider']
